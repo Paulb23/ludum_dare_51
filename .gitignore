@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+export.cfg
+.fscache
+.swp
+/builds
+*.import
+*.translation
+export_presets.cfg
