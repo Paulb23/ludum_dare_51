@@ -8,11 +8,40 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Node",
+"class": &"character",
+"language": &"GDScript",
+"path": "res://entities/character.gd"
+}, {
+"base": "Resource",
+"class": &"character_stats",
+"language": &"GDScript",
+"path": "res://entities/character_stats.gd"
+}, {
+"base": "Resource",
+"class": &"weapon",
+"language": &"GDScript",
+"path": "res://entities/weapons/weapon.gd"
+}]
+_global_script_class_icons={
+"character": "",
+"character_stats": "",
+"weapon": ""
+}
+
 [application]
 
-config/name="Ludum Dare 51"
+config/name="Swords of Carnage"
+run/main_scene="res://swords_of_carnage.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Filesystem="*res://autoloads/filesystem.gd"
+SceneManager="*res://autoloads/scene_manager.gd"
+PlayerProfile="*res://autoloads/player_profile.gd"
 
 [display]
 

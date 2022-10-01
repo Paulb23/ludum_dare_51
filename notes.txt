@@ -1,5 +1,64 @@
 Ludum dare 51 ideas
 -------------------
 
-Theme:
+Theme: Every 10 seconds
+
+User is time limited:
+Platformer 10 seconds to solve level.
+Turn based game where each turn takes a max of 10 seconds.
+	- Chess like strategy game
+
+	- Duel based game.
+	- Name: Swords of Carnage
+
+		- Easy to make 2d.
+		- Charater has equipment
+		- set actions, only 10 seconds to choose.
+			- Health, stanima and magic.
+			- Armour
+			- Weapons
+
+			- shops
+				- Armour
+				- Meele Weapons
+				- Ranged Weapons
+				- Magic
+				- Fight
+
+
+			- Use Item
+				- Heal
+				- Power up
+
+			- Attack
+				- Quick
+				- Heavy
+				- Swap
+
+			- Rest
+				- Way to heal without items.
+
+			- Move
+				- Left or right.
+				- Jump over?
+				- Charge
+
+			- Run
+				- Exit the level
+
+
+		- setting:
+			- World has been taken over by monsters.
+			- Starting in a town.
+			- Free the surronding area via duals.
+			- Reach the "boss" to free this zone.
+
+The last 10 seconds are repeated.
+	- World does not revert only position solve puzzles.
+	- Previous ghost takes actions.
+
+Somthing happens:
+Raising danger every 10 seconds.
+Somthing spawns every 10 seconds.
+Somthing changes every 10 seconds.
 

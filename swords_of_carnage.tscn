@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0g8vvty2pdv"]
+
+[ext_resource type="Script" path="res://swords_of_carnage.gd" id="1_45kic"]
+[ext_resource type="PackedScene" uid="uid://bsqd7q1sscb3i" path="res://loading_screen.tscn" id="1_k4ctc"]
+
+[node name="swords_of_carnage" type="Node"]
+script = ExtResource("1_45kic")
+
+[node name="active_scene_root" type="Node" parent="."]
+
+[node name="loading_screen" parent="." instance=ExtResource("1_k4ctc")]

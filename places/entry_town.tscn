@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp2qcdpafmmku"]
+
+[ext_resource type="Texture2D" uid="uid://bdl7fu5aro3di" path="res://places/entry_town.png" id="1_xwg8s"]
+[ext_resource type="Script" path="res://places/entry_town.gd" id="1_yguep"]
+[ext_resource type="Texture2D" uid="uid://b5mykr3pw2jx0" path="res://places/entry_world_map.png" id="2_r6bqm"]
+
+[node name="entry_town" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yguep")
+
+[node name="town_view" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="town" type="TextureRect" parent="town_view"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xwg8s")
+
+[node name="map" type="Button" parent="town_view"]
+offset_left = 1004.0
+offset_top = 553.0
+offset_right = 1047.0
+offset_bottom = 584.0
+text = "Map
+"
+
+[node name="world_map" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="map" type="TextureRect" parent="world_map"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_r6bqm")
+
+[node name="town" type="Button" parent="world_map"]
+offset_left = 573.0
+offset_top = 274.0
+offset_right = 624.0
+offset_bottom = 305.0
+text = "Town
+"
+
+[node name="level_1" type="Button" parent="world_map"]
+offset_left = 252.0
+offset_top = 345.0
+offset_right = 303.0
+offset_bottom = 376.0
+text = "1
+"

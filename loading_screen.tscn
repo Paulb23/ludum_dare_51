@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsqd7q1sscb3i"]
+
+[ext_resource type="Script" path="res://loading_screen.gd" id="1_kpak7"]
+
+[node name="loading_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kpak7")
+
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="status" type="RichTextLabel" parent="center_container"]
+custom_minimum_size = Vector2i(100, 100)
+offset_left = 590.0
+offset_top = 310.0
+offset_right = 690.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[wave amp=50 feq=5]Loading...[/wave]"
+fit_content_height = true
+scroll_active = false
+
+[node name="progress" type="ProgressBar" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
