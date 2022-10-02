@@ -90,12 +90,15 @@ func _end_turn() -> void:
 		player_won = true
 		PlayerProfile.stats.gold += %ai.stats.gold
 		PlayerProfile.stats.xp += %ai.stats.xp
+		if !PlayerProfile.stats.levels_beaten.has(SceneManager.get_current_level()):
+			PlayerProfile.stats.levels_beaten.push_back(SceneManager.get_current_level())
 
 		var level_up : bool = PlayerProfile.stats.xp > 50
 		if (PlayerProfile.stats.xp > 50):
 			PlayerProfile.stats.max_allocated_stats += 5
 			PlayerProfile.stats.xp = 0
 
+		PlayerProfile.set_stats(PlayerProfile.get_stats())
 		await %ai.death()
 		$game_over/VBoxContainer/Label.text = "You Won!"
 		$game_over/VBoxContainer/gold.text = str("You gained ", %ai.stats.gold, " gold")
@@ -122,6 +125,9 @@ func leave() -> void:
 	AudioManager._play_click()
 	if player_won:
 		SceneManager.show_loading_screen(1, "Loading...")
+		if SceneManager.get_current_level() == "level_15":
+			SceneManager.change_scene("res://menus/end_cut_scene.tscn")
+			return
 		SceneManager.change_scene("res://places/entry_town.tscn")
 		return
 

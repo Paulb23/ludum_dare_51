@@ -45,7 +45,7 @@ func start_pressed() -> void:
 		return
 	PlayerProfile.set_stats(stats)
 	SceneManager.show_loading_screen(1, "Loading...")
-	SceneManager.change_scene("res://places/entry_town.tscn")
+	SceneManager.change_scene("res://menus/intro_cut_scene.tscn")
 
 func make_visable(p_stats : character_stats) -> void:
 	stats = p_stats

@@ -11,6 +11,7 @@ class_name character_stats
 @export var xp : int = 50
 @export var gold : int = 50
 @export var brought_items = ["unarmed"]
+@export var levels_beaten = []
 
 @export var main_weapon : weapon = preload("res://entities/weapons/unarmed.tres")
 @export var secondary_weapon : weapon = preload("res://entities/weapons/unarmed.tres")
