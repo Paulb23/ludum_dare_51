@@ -10,7 +10,11 @@ func _ready() -> void:
 	$prev.pressed.connect(self._prev_presseed)
 	$next.pressed.connect(self._next_presseed)
 
+	$prev.mouse_entered.connect(AudioManager._play_hover)
+	$next.mouse_entered.connect(AudioManager._play_hover)
+
 func _prev_presseed() -> void:
+	AudioManager._play_click()
 	idx -= 1
 	if idx < 0:
 		idx = values.size() - 1
@@ -18,6 +22,7 @@ func _prev_presseed() -> void:
 	changed.emit(values[idx])
 
 func _next_presseed() -> void:
+	AudioManager._play_click()
 	idx += 1
 	if idx > values.size() - 1:
 		idx = 0

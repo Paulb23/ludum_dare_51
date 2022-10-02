@@ -47,6 +47,11 @@ func do_attack(other : character) -> void:
 	stats.stamina -= 2
 	other.take_hit(damage)
 
+	if _current_equiped.type == weapon.types.meele:
+		await $skeleton.animation_play("meele_attack")
+	else:
+		await $skeleton.animation_play("magic_attack")
+
 func do_quick_attack(other : character) -> void:
 	if (stats.stamina < 1):
 		return
@@ -65,22 +70,31 @@ func do_quick_attack(other : character) -> void:
 	stats.stamina -= 1
 	other.take_hit(damage)
 
+	if _current_equiped.type == weapon.types.meele:
+		await $skeleton.animation_play("meele_attack")
+	else:
+		await $skeleton.animation_play("magic_attack")
+
 func do_swap(other : character) -> void:
 	if _using_main:
 		_current_equiped = stats.secondary_weapon
 		_using_main = false
 		$skeleton._load_weapon(_current_equiped)
+		await $skeleton.animation_play("swap")
 		return
 
 	_current_equiped = stats.main_weapon
 	_using_main = true
+	await $skeleton.animation_play("swap")
 	$skeleton._load_weapon(_current_equiped)
 
 func do_heal(other : character) -> void:
 	stats.health = min(max_health, stats.health + 1)
+	await $skeleton.animation_play("heal")
 
 func do_powerup(other : character) -> void:
 	stats.mana = min(max_mana, stats.mana + 1)
+	await $skeleton.animation_play("mana")
 
 func do_move_right(other : character) -> void:
 	if (stats.stamina < 1):
@@ -88,6 +102,7 @@ func do_move_right(other : character) -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(_get_new_right_pos(), 0), 0.5)
 	stats.stamina -= 1
+	await $skeleton.animation_play("move")
 
 func do_move_left(other : character) -> void:
 	if (stats.stamina < 1):
@@ -95,12 +110,19 @@ func do_move_left(other : character) -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(self, "position", Vector2(_get_new_left_pos(), 0), 0.5)
 	stats.stamina -= 1
+	await $skeleton.animation_play("move")
 
 func do_jump(other : character) -> void:
-	pass
+	if (stats.stamina < 2):
+		return
+	var tween := get_tree().create_tween()
+	tween.tween_property(self, "position", Vector2(_get_new_right_pos() + 50, 0), 0.5)
+	stats.stamina -= 2
+	await $skeleton.animation_play("move")
 
 func do_rest(other : character) -> void:
 	stats.stamina = min(max_stamina, stats.stamina + 3)
+	await $skeleton.animation_play("rest")
 
 func do_run(other : character) -> void:
 	pass
@@ -112,8 +134,11 @@ func _get_new_left_pos() -> int:
 	return self.position.x - 100
 
 func take_hit(damage : int) -> void:
-	print("hit for: ", damage)
 	stats.health -= damage
+	if (damage > 0):
+		await $skeleton.animation_play("hit")
+	else:
+		await $skeleton.animation_play("block")
 
 func in_range(other : character) -> bool:
 	return abs(self.global_position - other.global_position).x < _current_equiped.range
@@ -132,6 +157,9 @@ func enough_stamina_for_quick_attack() -> bool:
 func enough_stamina_for_move() -> bool:
 	return stats.stamina > 0
 
+func enough_stamina_for_jump() -> bool:
+	return stats.stamina > 1
+
 func at_max_health() -> bool:
 	return stats.health == max_health
 
@@ -140,3 +168,6 @@ func at_max_stamina() -> bool:
 
 func at_max_mana() -> bool:
 	return stats.mana == max_mana
+
+func death() -> void:
+	await $skeleton.animation_play("death")

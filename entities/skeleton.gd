@@ -7,6 +7,8 @@ var hair_color_shade := Color("#712a4a")
 var skin_color := Color("#f5d1a9")
 var skin_color_shade := Color("#f1ac7b")
 
+var dead = false
+
 func _ready() -> void:
 	update_materials()
 
@@ -101,3 +103,13 @@ func load_amour(w : armour) -> void:
 		else:
 			$skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head/helm.texture = null
 			$skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head/hair.visible = true
+
+func animation_play(ani) -> void:
+	if dead:
+		return
+	if ani == "death":
+		dead = true
+	$AnimationPlayer.play(ani)
+	await $AnimationPlayer.animation_finished
+	if not dead:
+		$AnimationPlayer.play("idle")

@@ -1,14 +1,17 @@
 extends Control
 
+var game_over := false
 var player_won := false
 var players_turn := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$game_over/VBoxContainer/leave.pressed.connect(self.leave)
+	$game_over/VBoxContainer/leave.mouse_entered.connect(AudioManager._play_hover)
 
 	for action in %actions.get_children():
 		action.pressed.connect(self._do_action.bind(action.name))
+		action.mouse_entered.connect(AudioManager._play_hover)
 
 	%player.stats = PlayerProfile.get_stats()
 
@@ -60,6 +63,9 @@ func _update_ui() -> void:
 			%actions/move_left.disabled = true
 			%actions/move_right.disabled = true
 
+		if !%player.enough_stamina_for_jump():
+			%actions/jump.disabled = true
+
 		if %player.at_max_health():
 			%actions/heal.disabled = true
 
@@ -71,6 +77,8 @@ func _update_ui() -> void:
 
 
 func _end_turn() -> void:
+	if game_over:
+		return
 	players_turn = !players_turn
 	if !players_turn:
 		%ai.do_turn(%player)
@@ -78,6 +86,7 @@ func _end_turn() -> void:
 		return
 
 	if %ai.stats.health <= 0:
+		game_over = true
 		player_won = true
 		PlayerProfile.stats.gold += %ai.stats.gold
 		PlayerProfile.stats.xp += %ai.stats.xp
@@ -87,6 +96,7 @@ func _end_turn() -> void:
 			PlayerProfile.stats.max_allocated_stats += 5
 			PlayerProfile.stats.xp = 0
 
+		await %ai.death()
 		$game_over/VBoxContainer/Label.text = "You Won!"
 		$game_over/VBoxContainer/gold.text = str("You gained ", %ai.stats.gold, " gold")
 		$game_over/VBoxContainer/xp.text = str("You gained ", %ai.stats.xp, " xp", " and leveled up!" if level_up else "")
@@ -95,7 +105,10 @@ func _end_turn() -> void:
 		return
 
 	if %player.stats.health <= 0:
+		game_over = true
 		player_won = false
+
+		await %player.death()
 		$game_over/VBoxContainer/Label.text = "You Died."
 		$game_over/VBoxContainer/gold.text = ""
 		$game_over/VBoxContainer/xp.text = ""
@@ -106,6 +119,7 @@ func _end_turn() -> void:
 	_update_ui()
 
 func leave() -> void:
+	AudioManager._play_click()
 	if player_won:
 		SceneManager.show_loading_screen(1, "Loading...")
 		SceneManager.change_scene("res://places/entry_town.tscn")
@@ -135,5 +149,12 @@ func _do_action(action : String) -> void:
 		"rest":
 			%player.do_rest(%ai)
 		"run":
-			%player.do_run(%ai)
+			game_over = true
+			player_won = true
+
+			$game_over/VBoxContainer/Label.text = "You ran away."
+			$game_over/VBoxContainer/gold.text = ""
+			$game_over/VBoxContainer/xp.text = ""
+			$game_over/VBoxContainer/leave.text = "Back to Town"
+			$game_over.visible = true
 	_end_turn()

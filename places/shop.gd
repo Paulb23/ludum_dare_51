@@ -19,12 +19,18 @@ var current
 var shop_type = "weapons"
 
 func _ready() -> void:
+	$HBoxContainer/VBoxContainer/HBoxContainer/buy.mouse_entered.connect(AudioManager._play_hover)
+	$HBoxContainer/VBoxContainer/HBoxContainer/equip.mouse_entered.connect(AudioManager._play_hover)
+	$HBoxContainer/VBoxContainer/HBoxContainer/equip_seconday.mouse_entered.connect(AudioManager._play_hover)
+	$close.mouse_entered.connect(AudioManager._play_hover)
+
 	$HBoxContainer/VBoxContainer/HBoxContainer/buy.pressed.connect(self._buy_presed)
 	$HBoxContainer/VBoxContainer/HBoxContainer/equip.pressed.connect(self._eqiup)
 	$HBoxContainer/VBoxContainer/HBoxContainer/equip_seconday.pressed.connect(self._eqiup_secondary)
 	$close.pressed.connect(self._close_shop)
 
 func _close_shop():
+	AudioManager._play_click()
 	self.visible = false
 
 func load_shop(type : String) -> void:
@@ -57,6 +63,7 @@ func load_shop(type : String) -> void:
 	$Panel/Label.text = str("Gold: ", PlayerProfile.stats.gold)
 
 func item_hovered(res, tb) -> void:
+	AudioManager._play_hover()
 	tb.texture_normal = load(res.hover_icon) as Texture2D
 
 	if current:
@@ -88,12 +95,14 @@ func item_hovered(res, tb) -> void:
 			$HBoxContainer/VBoxContainer/HBoxContainer/buy.disabled = owns || PlayerProfile.stats.gold < res.price
 
 func _buy_presed() -> void:
+	AudioManager._play_click()
 	PlayerProfile.stats.brought_items.push_back(current.name)
 	PlayerProfile.stats.gold -= current.price
 	load_shop(shop_type)
 	item_hovered(current, last_button)
 
 func _eqiup() -> void:
+	AudioManager._play_click()
 	if shop_type == "weapons" || shop_type == "magic":
 		PlayerProfile.stats.main_weapon = current
 
@@ -103,5 +112,6 @@ func _eqiup() -> void:
 	item_hovered(current, last_button)
 
 func _eqiup_secondary() -> void:
+	AudioManager._play_click()
 	PlayerProfile.stats.secondary_weapon = current
 	item_hovered(current, last_button)

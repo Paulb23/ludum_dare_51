@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhib8jml8fvho"]
+[gd_scene load_steps=6 format=3 uid="uid://dhib8jml8fvho"]
 
 [ext_resource type="AudioStream" uid="uid://ctq1da5oxpkfe" path="res://music/town.wav" id="1_nl4wx"]
 [ext_resource type="AudioStream" uid="uid://clqaayno3icen" path="res://music/battle.wav" id="2_4uhjb"]
 [ext_resource type="AudioStream" uid="uid://b133bpunmda15" path="res://music/menu.wav" id="2_vr25r"]
+[ext_resource type="AudioStream" uid="uid://bbj2hlsprqlnv" path="res://music/click.mp3" id="4_bys4m"]
+[ext_resource type="AudioStream" uid="uid://dph7rnohko3c4" path="res://music/hover.mp3" id="5_wxp4a"]
 
 [node name="music" type="Node2D"]
 
@@ -17,3 +19,12 @@ bus = &"Music"
 [node name="battle_theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_4uhjb")
 bus = &"Music"
+
+[node name="button_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bys4m")
+bus = &"SFX"
+
+[node name="button_hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wxp4a")
+max_polyphony = 2
+bus = &"SFX"

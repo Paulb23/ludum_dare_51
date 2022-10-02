@@ -17,9 +17,12 @@ func _ready() -> void:
 	for node in $HBoxContainer/stats/name/stats/GridContainer.get_children():
 		if node is Button:
 			node.pressed.connect(self._stats_button_presed.bind(str(node.name).split("_")[0], -1 if str(node.name).contains("less") else 1))
+			node.mouse_entered.connect(AudioManager._play_hover)
 
 	$HBoxContainer/stats/name/back.pressed.connect(self._back_presed)
+	$HBoxContainer/stats/name/back.mouse_entered.connect(AudioManager._play_hover)
 	$HBoxContainer/style2/VBoxContainer/start.pressed.connect(self.start_pressed)
+	$HBoxContainer/style2/VBoxContainer/start.mouse_entered.connect(AudioManager._play_hover)
 	_update_stats_ui()
 
 func _hair_changed(color):
@@ -37,6 +40,7 @@ func hide_start() ->void:
 	$HBoxContainer/style2/VBoxContainer/start.visible = false
 
 func start_pressed() -> void:
+	AudioManager._play_click()
 	if stats.name == "":
 		return
 	PlayerProfile.set_stats(stats)
@@ -56,6 +60,7 @@ func _name_changed(new_name : String) -> void:
 	stats.name = new_name
 
 func _stats_button_presed(node_name : String, inc_value : int) -> void:
+	AudioManager._play_click()
 	if (stats.get_allocations_remaining() <= 0 && inc_value > 0):
 		return
 
