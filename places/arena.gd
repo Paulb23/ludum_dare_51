@@ -1,9 +1,12 @@
 extends Control
 
+var player_won := false
 var players_turn := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$game_over/VBoxContainer/leave.pressed.connect(self.leave)
+
 	for action in %actions.get_children():
 		action.pressed.connect(self._do_action.bind(action.name))
 
@@ -74,17 +77,41 @@ func _end_turn() -> void:
 		return
 
 	if %ai.stats.health <= 0:
-		# do somthing
+		player_won = true
+		PlayerProfile.stats.gold += %ai.stats.gold
+		PlayerProfile.stats.xp += %ai.stats.xp
+
+		var level_up : bool = PlayerProfile.stats.xp > 50
+		if (PlayerProfile.stats.xp > 50):
+			PlayerProfile.stats.max_allocated_stats += 5
+			PlayerProfile.stats.xp = 0
+
+		$game_over/VBoxContainer/Label.text = "You Won!"
+		$game_over/VBoxContainer/gold.text = str("You gained ", %ai.stats.gold, " gold")
+		$game_over/VBoxContainer/xp.text = str("You gained ", %ai.stats.xp, " xp", " and leveled up!" if level_up else "")
+		$game_over/VBoxContainer/leave.text = "Back to Town"
+		$game_over.visible = true
+		return
+
+	if %player.stats.health <= 0:
+		player_won = false
+		$game_over/VBoxContainer/Label.text = "You Died."
+		$game_over/VBoxContainer/gold.text = ""
+		$game_over/VBoxContainer/xp.text = ""
+		$game_over/VBoxContainer/leave.text = "Main Menu"
+		$game_over.visible = true
+		return
+
+	_update_ui()
+
+func leave() -> void:
+	if player_won:
 		SceneManager.show_loading_screen(1, "Loading...")
 		SceneManager.change_scene("res://places/entry_town.tscn")
 		return
 
-	if %player.stats.health <= 0:
-		SceneManager.show_loading_screen(1, "Loading...")
-		SceneManager.change_scene("res://menus/main_menu.tscn")
-		return
-
-	_update_ui()
+	SceneManager.show_loading_screen(1, "Loading...")
+	SceneManager.change_scene("res://menus/main_menu.tscn")
 
 func _do_action(action : String) -> void:
 	match action:
