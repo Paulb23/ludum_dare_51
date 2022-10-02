@@ -3,7 +3,10 @@ extends Control
 var text_displayed = false
 
 func _ready() -> void:
-	AudioManager._play_menu_music()
+	if SceneManager.get_current_level() != "level_15":
+		AudioManager._play_battle_music()
+	else:
+		AudioManager._play_menu_music()
 	SceneManager.hide_loading_screen()
 
 func _on_timer_timeout() -> void:
