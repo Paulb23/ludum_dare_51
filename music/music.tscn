@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhib8jml8fvho"]
+
+[ext_resource type="AudioStream" uid="uid://ctq1da5oxpkfe" path="res://music/town.wav" id="1_nl4wx"]
+[ext_resource type="AudioStream" uid="uid://clqaayno3icen" path="res://music/battle.wav" id="2_4uhjb"]
+[ext_resource type="AudioStream" uid="uid://b133bpunmda15" path="res://music/menu.wav" id="2_vr25r"]
+
+[node name="music" type="Node2D"]
+
+[node name="town_theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_nl4wx")
+bus = &"Music"
+
+[node name="menu_theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vr25r")
+bus = &"Music"
+
+[node name="battle_theme" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_4uhjb")
+bus = &"Music"

@@ -48,6 +48,7 @@ config/icon="res://icon.svg"
 Filesystem="*res://autoloads/filesystem.gd"
 SceneManager="*res://autoloads/scene_manager.gd"
 PlayerProfile="*res://autoloads/player_profile.gd"
+AudioManager="*res://autoloads/audio_manager.gd"
 
 [display]
 

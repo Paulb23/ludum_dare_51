@@ -10,6 +10,7 @@ func _ready() -> void:
 
 	$buttons/container/continue.disabled = !PlayerProfile.has_stats()
 
+	AudioManager._play_menu_music()
 	if SceneManager.is_loading():
 		SceneManager.hide_loading_screen()
 

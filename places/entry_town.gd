@@ -19,6 +19,7 @@ func _ready() -> void:
 
 	$world_map/level_1.pressed.connect(self._load_level.bind("level_1"))
 
+	AudioManager._play_town_music()
 	SceneManager.hide_loading_screen()
 
 func _weapon_shop_pressed() ->void:

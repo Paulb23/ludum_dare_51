@@ -23,6 +23,7 @@ func _ready() -> void:
 	%player.ready_up()
 	%ai.ready_up()
 	_update_ui()
+	AudioManager._play_battle_music()
 	SceneManager.hide_loading_screen()
 
 func _update_ui() -> void:
