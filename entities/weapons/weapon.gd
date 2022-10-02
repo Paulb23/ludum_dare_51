@@ -16,3 +16,11 @@ enum types {
 @export var damage : int = 1
 
 @export var range : int = 1
+
+@export_file("*.png") var sprite : String
+
+@export_file("*.png") var locked_icon : String
+@export_file("*.png") var unlocked_icon : String
+
+@export_file("*.png") var hover_icon : String
+@export_file("*.png") var clicked_icon : String

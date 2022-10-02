@@ -17,21 +17,27 @@ func _ready() -> void:
 	%ai_stats/stamina_value.max_value = %ai.stats.stamina
 	%ai_stats/mana_value.max_value = %ai.stats.mana
 
-	_update_ui()
 	%player.ready_up()
 	%ai.ready_up()
+	_update_ui()
 	SceneManager.hide_loading_screen()
 
 func _update_ui() -> void:
 	%player_stats/name.text = str(%player.stats.name)
 	%player_stats/health_value.value = %player.stats.health
+	%player_stats/health_value/value.text = str(%player.stats.health, "/", %player.max_health)
 	%player_stats/stamina_value.value = %player.stats.stamina
+	%player_stats/stamina_value/value.text = str(%player.stats.stamina, "/", %player.max_stamina)
 	%player_stats/mana_value.value = %player.stats.mana
+	%player_stats/mana_value/value.text = str(%player.stats.mana, "/", %player.max_mana)
 
 	%ai_stats/name.text = str(%ai.stats.name)
 	%ai_stats/health_value.value = %ai.stats.health
+	%ai_stats/health_value/value.text = str(%ai.stats.health, "/", %ai.max_health)
 	%ai_stats/stamina_value.value = %ai.stats.stamina
+	%ai_stats/stamina_value/value.text = str(%ai.stats.stamina, "/", %ai.max_stamina)
 	%ai_stats/mana_value.value = %ai.stats.mana
+	%ai_stats/mana_value/value.text = str(%ai.stats.mana, "/", %ai.max_mana)
 
 	if !players_turn:
 		for action in %actions.get_children():

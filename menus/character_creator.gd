@@ -10,6 +10,9 @@ var stats : character_stats
 func _ready() -> void:
 	stats = character_stats.new()
 
+	$HBoxContainer/style2/VBoxContainer/VBoxContainer/HBoxContainer.changed.connect(self._hair_changed)
+	$HBoxContainer/style2/VBoxContainer/VBoxContainer2/HBoxContainer.changed.connect(self._skin_changed)
+
 	%name.text_changed.connect(self._name_changed)
 	for node in $HBoxContainer/stats/name/stats/GridContainer.get_children():
 		if node is Button:
@@ -18,6 +21,14 @@ func _ready() -> void:
 	$HBoxContainer/stats/name/back.pressed.connect(self._back_presed)
 	$HBoxContainer/style2/VBoxContainer/start.pressed.connect(self.start_pressed)
 	_update_stats_ui()
+
+func _hair_changed(color):
+	$skeleton.set_hair_color(color)
+	stats.hair_colour = color
+
+func _skin_changed(color):
+	$skeleton.set_skin_color(color)
+	stats.skin_colour = color
 
 func _back_presed() -> void:
 	back_pressed.emit()
@@ -43,9 +54,9 @@ func _stats_button_presed(node_name : String, inc_value : int) -> void:
 
 	match node_name:
 		"health":
-			stats.health = clamp(stats.health + inc_value, MIN_STAT, MAX_STAT)
+			stats.health = clamp(stats.health + inc_value, 5, MAX_STAT)
 		"stamina":
-			stats.stamina = clamp(stats.stamina + inc_value, MIN_STAT, MAX_STAT)
+			stats.stamina = clamp(stats.stamina + inc_value, 2, MAX_STAT)
 		"mana":
 			stats.mana = clamp(stats.mana + inc_value, MIN_STAT, MAX_STAT)
 		"agility":

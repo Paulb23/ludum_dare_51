@@ -1,14 +1,14 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://6558vm7dy8qs"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cnnr50qq1d7r8"]
 
 [ext_resource type="Script" path="res://entities/weapons/weapon.gd" id="1_ck13n"]
 
 [resource]
 script = ExtResource("1_ck13n")
-name = "unarmed"
+name = "Short sword"
 type = 0
-price = 50
-damage = 1
-range = 200
+price = 100
+damage = 5
+range = 300
 sprite = null
 locked_icon = null
 unlocked_icon = "res://icons/weapons/unnamed_unlocked.png"

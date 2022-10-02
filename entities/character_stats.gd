@@ -5,17 +5,22 @@ class_name character_stats
 
 @export var name : String = ""
 
-@export var max_allocated_stats : int = 18
+@export var max_allocated_stats : int = 23
 
 # inventory
-@export var gold : int = 0
+@export var gold : int = 100
+@export var brought_items = ["unarmed"]
 
 @export var main_weapon : weapon = preload("res://entities/weapons/unarmed.tres")
 @export var secondary_weapon : weapon = preload("res://entities/weapons/unarmed.tres")
 
+# style
+@export var hair_colour : String = "red"
+@export var skin_colour : String = "white"
+
 # Amount of stats
-@export var health : int = 1
-@export var stamina : int = 1
+@export var health : int = 5
+@export var stamina : int = 2
 @export var mana : int = 1
 
 # Defence stats

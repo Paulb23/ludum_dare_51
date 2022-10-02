@@ -1,8 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp2qcdpafmmku"]
+[gd_scene load_steps=25 format=3 uid="uid://d0kur5n0aay7c"]
 
 [ext_resource type="Texture2D" uid="uid://bdl7fu5aro3di" path="res://places/entry_town.png" id="1_xwg8s"]
 [ext_resource type="Script" path="res://places/entry_town.gd" id="1_yguep"]
 [ext_resource type="Texture2D" uid="uid://b5mykr3pw2jx0" path="res://places/entry_world_map.png" id="2_r6bqm"]
+[ext_resource type="Texture2D" uid="uid://cw401vbip7co" path="res://icons/mana_normal.png" id="3_4gdxd"]
+[ext_resource type="Texture2D" uid="uid://nqsh4iyr1ovi" path="res://icons/mana_clicked.png" id="4_q3c47"]
+[ext_resource type="Texture2D" uid="uid://dae1dxtdaa4rl" path="res://icons/mana_hovered.png" id="5_1rf86"]
+[ext_resource type="Texture2D" uid="uid://cfvdouic8n2x0" path="res://icons/mana_disbabled.png" id="6_hkdf2"]
+[ext_resource type="Texture2D" uid="uid://034axy8v5eai" path="res://icons/attack_normal.png" id="7_cco1x"]
+[ext_resource type="Texture2D" uid="uid://djtplc3rm4hvs" path="res://icons/attack_clicked.png" id="8_t48hj"]
+[ext_resource type="Texture2D" uid="uid://cd1hldj1x304v" path="res://icons/attack_hover.png" id="9_ri8op"]
+[ext_resource type="Texture2D" uid="uid://cyl1713e1ee1" path="res://icons/attack_disabled.png" id="10_m6mul"]
+[ext_resource type="Texture2D" uid="uid://dpxt8q74naef3" path="res://icons/armour_normal.png" id="11_60qmj"]
+[ext_resource type="Texture2D" uid="uid://tgodlkow5lgc" path="res://icons/armour_click.png" id="12_8aemh"]
+[ext_resource type="Texture2D" uid="uid://f20fv14caaor" path="res://icons/armour_hover.png" id="13_25rxf"]
+[ext_resource type="Texture2D" uid="uid://b4scpm0yhfi31" path="res://icons/armour_disabled.png" id="14_01wh4"]
+[ext_resource type="Texture2D" uid="uid://c7xk8fkiu4jun" path="res://icons/move_normal.png" id="15_fkgns"]
+[ext_resource type="Texture2D" uid="uid://cmiyin6803vws" path="res://icons/heal_normal.png" id="15_mxpax"]
+[ext_resource type="Texture2D" uid="uid://b1px5lbhrj5p5" path="res://icons/heal_click.png" id="16_blpmm"]
+[ext_resource type="Texture2D" uid="uid://b1s5nsm6tluvy" path="res://icons/move_clicked.png" id="16_jtket"]
+[ext_resource type="Texture2D" uid="uid://babo2r4iwkt4h" path="res://icons/heal_hover.png" id="17_cjssv"]
+[ext_resource type="Texture2D" uid="uid://b0asc5vh06gid" path="res://icons/move_hovered.png" id="17_qr7w6"]
+[ext_resource type="Texture2D" uid="uid://xxi15o8ne6tx" path="res://icons/heal_disabled.png" id="18_a37ni"]
+[ext_resource type="Texture2D" uid="uid://b8fgjoaheyhym" path="res://icons/move_disabled.png" id="18_x6l1e"]
+[ext_resource type="Script" path="res://places/shop.gd" id="24_fg3kp"]
 
 [node name="entry_town" type="Control"]
 layout_mode = 3
@@ -14,8 +35,7 @@ grow_vertical = 2
 script = ExtResource("1_yguep")
 
 [node name="town_view" type="Control" parent="."]
-visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,30 +43,92 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="town" type="TextureRect" parent="town_view"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_xwg8s")
 
-[node name="map" type="Button" parent="town_view"]
-offset_left = 1004.0
-offset_top = 553.0
-offset_right = 1047.0
-offset_bottom = 584.0
-text = "Map
-"
+[node name="mana_shop" type="TextureButton" parent="town_view"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 284.0
+offset_right = 293.0
+offset_bottom = 360.0
+texture_normal = ExtResource("3_4gdxd")
+texture_pressed = ExtResource("4_q3c47")
+texture_hover = ExtResource("5_1rf86")
+texture_disabled = ExtResource("6_hkdf2")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="weapon_shop" type="TextureButton" parent="town_view"]
+layout_mode = 1
+offset_left = 146.0
+offset_top = 467.0
+offset_right = 232.0
+offset_bottom = 554.0
+texture_normal = ExtResource("7_cco1x")
+texture_pressed = ExtResource("8_t48hj")
+texture_hover = ExtResource("9_ri8op")
+texture_disabled = ExtResource("10_m6mul")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="armour_shop" type="TextureButton" parent="town_view"]
+layout_mode = 1
+offset_left = 867.0
+offset_top = 204.0
+offset_right = 943.0
+offset_bottom = 281.0
+texture_normal = ExtResource("11_60qmj")
+texture_pressed = ExtResource("12_8aemh")
+texture_hover = ExtResource("13_25rxf")
+texture_disabled = ExtResource("14_01wh4")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="to_stats" type="TextureButton" parent="town_view"]
+layout_mode = 1
+offset_left = 523.0
+offset_top = 345.0
+offset_right = 593.0
+offset_bottom = 416.0
+texture_normal = ExtResource("15_mxpax")
+texture_pressed = ExtResource("16_blpmm")
+texture_hover = ExtResource("17_cjssv")
+texture_disabled = ExtResource("18_a37ni")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="to_map" type="TextureButton" parent="town_view"]
+layout_mode = 1
+offset_left = 1046.0
+offset_top = 359.0
+offset_right = 1116.0
+offset_bottom = 433.0
+texture_normal = ExtResource("15_fkgns")
+texture_pressed = ExtResource("16_jtket")
+texture_hover = ExtResource("17_qr7w6")
+texture_disabled = ExtResource("18_x6l1e")
+ignore_texture_size = true
+stretch_mode = 4
+flip_h = true
 
 [node name="world_map" type="Control" parent="."]
-layout_mode = 3
+visible = false
+layout_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="map" type="TextureRect" parent="world_map"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_r6bqm")
 
 [node name="town" type="Button" parent="world_map"]
+layout_mode = 0
 offset_left = 573.0
 offset_top = 274.0
 offset_right = 624.0
@@ -55,9 +137,142 @@ text = "Town
 "
 
 [node name="level_1" type="Button" parent="world_map"]
+layout_mode = 0
 offset_left = 252.0
 offset_top = 345.0
 offset_right = 303.0
 offset_bottom = 376.0
 text = "1
 "
+
+[node name="shop" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 0.2)
+script = ExtResource("24_fg3kp")
+
+[node name="Panel" type="ColorRect" parent="shop"]
+custom_minimum_size = Vector2i(800, 400)
+layout_mode = 0
+offset_left = 243.0
+offset_top = 163.0
+offset_right = 1043.0
+offset_bottom = 563.0
+color = Color(0.129412, 0.0862745, 0.180392, 1)
+
+[node name="Label" type="Label" parent="shop/Panel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 366.0
+offset_right = 75.0
+offset_bottom = 392.0
+text = "Gold: 50
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="shop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.0
+offset_top = -187.0
+offset_right = 383.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="shop/HBoxContainer"]
+custom_minimum_size = Vector2i(450, 350)
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 378.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 30
+columns = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="shop/HBoxContainer"]
+layout_mode = 2
+offset_left = 454.0
+offset_right = 754.0
+offset_bottom = 378.0
+
+[node name="name" type="Label" parent="shop/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2i(300, 50)
+layout_mode = 2
+offset_right = 300.0
+offset_bottom = 50.0
+text = "item name here"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="stats" type="Label" parent="shop/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2i(300, 250)
+layout_mode = 2
+offset_top = 54.0
+offset_right = 300.0
+offset_bottom = 304.0
+size_flags_vertical = 1
+text = "this
+is 
+some
+stats
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HFlowContainer" parent="shop/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 308.0
+offset_right = 300.0
+offset_bottom = 374.0
+
+[node name="buy" type="Button" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2i(145, 0)
+layout_mode = 2
+offset_right = 145.0
+offset_bottom = 31.0
+text = "Buy"
+
+[node name="equip" type="Button" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2i(145, 0)
+layout_mode = 2
+offset_left = 149.0
+offset_right = 294.0
+offset_bottom = 31.0
+text = "Equip
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 80.0
+offset_bottom = 66.0
+theme_override_constants/margin_right = 80
+
+[node name="equip_seconday" type="Button" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
+offset_left = 84.0
+offset_top = 35.0
+offset_right = 220.0
+offset_bottom = 66.0
+text = "Equip secondary
+"
+
+[node name="close" type="Button" parent="shop"]
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 0
+offset_left = 992.0
+offset_top = 166.0
+offset_right = 1042.0
+offset_bottom = 216.0
+text = "X"

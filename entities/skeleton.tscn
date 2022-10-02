@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://df6pwalwqor6c"]
+[gd_scene load_steps=36 format=3 uid="uid://ob4jrbrmxdmv"]
 
+[ext_resource type="Script" path="res://entities/skeleton.gd" id="1_2aese"]
 [ext_resource type="Texture2D" uid="uid://busthc36ng3il" path="res://entities/human_outline/upper_arm_left.PNG" id="1_l8hc4"]
 [ext_resource type="Texture2D" uid="uid://eia5ba5c384p" path="res://entities/human_outline/lower_arm_left.PNG" id="2_eajjw"]
 [ext_resource type="Texture2D" uid="uid://cukk24v7ujpj6" path="res://entities/human_outline/hand_left.PNG" id="3_67mnu"]
@@ -10,16 +11,73 @@
 [ext_resource type="Texture2D" uid="uid://do7gndck4cwdj" path="res://entities/human_outline/upper_arm_right.PNG" id="8_mf5ie"]
 [ext_resource type="Texture2D" uid="uid://cjlb0053lbndl" path="res://entities/human_outline/lower_arm_right.PNG" id="9_lsv36"]
 [ext_resource type="Texture2D" uid="uid://dtxdramj4ojib" path="res://entities/human_outline/hand_right.PNG" id="10_jf5oq"]
+[ext_resource type="Shader" path="res://shaders/skin_colour_swap.gdshader" id="11_b370l"]
 [ext_resource type="Texture2D" uid="uid://cte386rremxjg" path="res://entities/human_outline/neck.PNG" id="11_t7ap7"]
 [ext_resource type="Texture2D" uid="uid://cyr26d7tnyofo" path="res://entities/human_outline/head.PNG" id="12_dswot"]
 [ext_resource type="Texture2D" uid="uid://cb0cogoh1tvvi" path="res://entities/human_outline/hair.PNG" id="13_my8v0"]
 [ext_resource type="Texture2D" uid="uid://cakfl6656vdm7" path="res://entities/human_outline/eyebrow.PNG" id="14_kyn2k"]
 [ext_resource type="Texture2D" uid="uid://bxlcutncqvk4x" path="res://entities/human_outline/eyes.PNG" id="15_x4hga"]
+[ext_resource type="Shader" path="res://shaders/hair_colour_swap.gdshader" id="16_1knev"]
 [ext_resource type="Texture2D" uid="uid://dujovm5nkea17" path="res://entities/human_outline/nose.PNG" id="16_ufrhw"]
 [ext_resource type="Texture2D" uid="uid://cf63i0e7k4f5u" path="res://entities/human_outline/mouth.PNG" id="17_s3hq8"]
 [ext_resource type="Texture2D" uid="uid://b15r5s0netsiy" path="res://entities/human_outline/upper_leg_right.PNG" id="18_8u80b"]
 [ext_resource type="Texture2D" uid="uid://babec0n773e7m" path="res://entities/human_outline/lower_leg_right.PNG" id="19_2pfj4"]
 [ext_resource type="Texture2D" uid="uid://lsd4i5xiyn8i" path="res://entities/human_outline/foot_right.PNG" id="20_qfj65"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dao4d"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afebc"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_so1yj"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlesa"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e2uke"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g46pr"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68vab"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oelfr"]
+resource_local_to_scene = true
+shader = ExtResource("16_1knev")
+shader_parameter/band_color = null
+shader_parameter/hair_color = null
+shader_parameter/hair_color_shade = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ggtj"]
+resource_local_to_scene = true
+shader = ExtResource("11_b370l")
+shader_parameter/skin_color = null
+shader_parameter/skin_color_shade = null
 
 [sub_resource type="Animation" id="Animation_2w1fd"]
 length = 0.001
@@ -708,34 +766,41 @@ _data = {
 }
 
 [node name="skeleton" type="Node2D"]
+script = ExtResource("1_2aese")
 
 [node name="upper_arm_left" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(84.9983, -78.0085)
-rotation = -0.0051839
+rotation = -0.00518385
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("1_l8hc4")
 
 [node name="lower_arm_left" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(114.993, 88.9626)
-rotation = -0.0051839
+rotation = -0.00518385
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("2_eajjw")
 
 [node name="hand_left" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(134.99, 188.945)
-rotation = -0.0051839
+rotation = -0.00518385
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("3_67mnu")
 
 [node name="upper_leg_left" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(64, 295)
 texture = ExtResource("4_lc10m")
 
 [node name="lower_leg_left" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(46, 491)
 texture = ExtResource("5_45txp")
 
 [node name="foot_left" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_afebc")
 position = Vector2(75, 610)
 texture = ExtResource("6_sbhan")
 
@@ -782,14 +847,17 @@ position = Vector2(-41, 73)
 rest = Transform2D(1, 0, 0, 1, -41, 73)
 
 [node name="foot_right" type="Sprite2D" parent="skeleton/hipBone2D/upper_leg_rightBone2D/lower_leg_rightBone2D/foot_rightBone2D"]
+material = SubResource("ShaderMaterial_so1yj")
 position = Vector2(21, -65)
 texture = ExtResource("20_qfj65")
 
 [node name="lower_leg_right" type="Sprite2D" parent="skeleton/hipBone2D/upper_leg_rightBone2D/lower_leg_rightBone2D"]
+material = SubResource("ShaderMaterial_so1yj")
 position = Vector2(17, -94)
 texture = ExtResource("19_2pfj4")
 
 [node name="upper_leg_right" type="Sprite2D" parent="skeleton/hipBone2D/upper_leg_rightBone2D"]
+material = SubResource("ShaderMaterial_so1yj")
 position = Vector2(43, -139)
 texture = ExtResource("18_8u80b")
 
@@ -797,6 +865,11 @@ texture = ExtResource("18_8u80b")
 position = Vector2(-4, -238)
 rotation = -0.0051839
 rest = Transform2D(1, 0, 0, 1, -4, -238)
+
+[node name="torso" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D"]
+material = SubResource("ShaderMaterial_mlesa")
+position = Vector2(-7.73083, 140.962)
+texture = ExtResource("7_8fof0")
 
 [node name="upper_arm_leftBone2D" type="Bone2D" parent="skeleton/hipBone2D/torsoBone2D"]
 position = Vector2(65, 10)
@@ -837,16 +910,19 @@ position = Vector2(33, 141)
 rest = Transform2D(1, 0, 0, 1, 33, 141)
 
 [node name="hand_right" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D/hand_rightBone2D"]
+material = SubResource("ShaderMaterial_e2uke")
 position = Vector2(15.2592, 24.6222)
 rotation = 0.00518386
 texture = ExtResource("10_jf5oq")
 
 [node name="lower_arm_right" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D"]
+material = SubResource("ShaderMaterial_e2uke")
 position = Vector2(13.7884, 63.4422)
 rotation = 0.00518386
 texture = ExtResource("9_lsv36")
 
 [node name="upper_arm_right" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D"]
+material = SubResource("ShaderMaterial_e2uke")
 position = Vector2(12.6436, 70.4911)
 rotation = 0.00518386
 texture = ExtResource("8_mf5ie")
@@ -855,16 +931,24 @@ texture = ExtResource("8_mf5ie")
 position = Vector2(1, -68)
 rest = Transform2D(1, 0, 0, 1, 1, -68)
 
+[node name="neck" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D"]
+material = SubResource("ShaderMaterial_g46pr")
+position = Vector2(3.32134, 6.02159)
+rotation = 0.00518386
+texture = ExtResource("11_t7ap7")
+
 [node name="headBone2D" type="Bone2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D"]
 position = Vector2(21, -69)
 rest = Transform2D(1, 0, 0, 1, 21, -69)
 
 [node name="head" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D"]
+material = SubResource("ShaderMaterial_68vab")
 position = Vector2(-11.3366, 9.05356)
 rotation = 0.00518386
 texture = ExtResource("12_dswot")
 
 [node name="hair" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head"]
+material = SubResource("ShaderMaterial_oelfr")
 position = Vector2(-6, 112)
 texture = ExtResource("13_my8v0")
 
@@ -877,21 +961,13 @@ position = Vector2(17, -8)
 texture = ExtResource("15_x4hga")
 
 [node name="nose" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head"]
+material = SubResource("ShaderMaterial_1ggtj")
 position = Vector2(14, 11)
 texture = ExtResource("16_ufrhw")
 
 [node name="mouth" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head"]
 position = Vector2(13, 40)
 texture = ExtResource("17_s3hq8")
-
-[node name="neck" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D"]
-position = Vector2(3.32134, 6.02158)
-rotation = 0.00518386
-texture = ExtResource("11_t7ap7")
-
-[node name="torso" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D"]
-position = Vector2(-7.73083, 140.962)
-texture = ExtResource("7_8fof0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"

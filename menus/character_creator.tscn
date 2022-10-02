@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://drlnp3wfhc2bu"]
+[gd_scene load_steps=4 format=3 uid="uid://drlnp3wfhc2bu"]
 
 [ext_resource type="Script" path="res://menus/character_creator.gd" id="1_t3vl0"]
+[ext_resource type="Script" path="res://menus/spin_control.gd" id="2_3oym1"]
+[ext_resource type="PackedScene" uid="uid://ob4jrbrmxdmv" path="res://entities/skeleton.tscn" id="2_ii88o"]
 
 [node name="character_creator" type="Control"]
 layout_mode = 3
@@ -355,9 +357,94 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="start" type="Button" parent="HBoxContainer/style2/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/style2/VBoxContainer"]
 offset_right = 240.0
+offset_bottom = 61.0
+
+[node name="skin_color" type="Label" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer2"]
+offset_right = 240.0
+offset_bottom = 26.0
+text = "Skin
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer2"]
+offset_top = 30.0
+offset_right = 240.0
+offset_bottom = 61.0
+script = ExtResource("2_3oym1")
+values = ["white", "brown", "green", "red", "blue", "purple", "yellow"]
+
+[node name="prev" type="Button" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer2/HBoxContainer"]
+offset_right = 23.0
 offset_bottom = 31.0
+text = "<-
+"
+
+[node name="hair_color_value" type="Label" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2i(175, 0)
+offset_left = 27.0
+offset_top = 2.0
+offset_right = 202.0
+offset_bottom = 28.0
+text = "Green"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="next" type="Button" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer2/HBoxContainer"]
+offset_left = 206.0
+offset_right = 229.0
+offset_bottom = 31.0
+text = "->"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/style2/VBoxContainer"]
+offset_top = 111.0
+offset_right = 240.0
+offset_bottom = 172.0
+
+[node name="hair_color" type="Label" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer"]
+offset_right = 240.0
+offset_bottom = 26.0
+text = "Hair"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer"]
+offset_top = 30.0
+offset_right = 240.0
+offset_bottom = 61.0
+script = ExtResource("2_3oym1")
+values = ["red", "green", "blue", "purple", "yellow"]
+
+[node name="prev" type="Button" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_right = 23.0
+offset_bottom = 31.0
+text = "<-
+"
+
+[node name="hair_color_value" type="Label" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2i(175, 0)
+offset_left = 27.0
+offset_top = 2.0
+offset_right = 202.0
+offset_bottom = 28.0
+text = "Green"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="next" type="Button" parent="HBoxContainer/style2/VBoxContainer/VBoxContainer/HBoxContainer"]
+offset_left = 206.0
+offset_right = 229.0
+offset_bottom = 31.0
+text = "->"
+
+[node name="start" type="Button" parent="HBoxContainer/style2/VBoxContainer"]
+offset_top = 222.0
+offset_right = 240.0
+offset_bottom = 253.0
 size_flags_vertical = 8
 text = "start
 "
+
+[node name="skeleton" parent="." instance=ExtResource("2_ii88o")]
+position = Vector2(645, 282)
+scale = Vector2(0.5, 0.5)

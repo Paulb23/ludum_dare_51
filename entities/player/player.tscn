@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cy5rtmgerpllr"]
 
 [ext_resource type="Script" path="res://entities/character.gd" id="1_r7pwl"]
-[ext_resource type="PackedScene" uid="uid://df6pwalwqor6c" path="res://entities/skeleton.tscn" id="1_rfeon"]
+[ext_resource type="PackedScene" uid="uid://ob4jrbrmxdmv" path="res://entities/skeleton.tscn" id="1_rfeon"]
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_r7pwl")

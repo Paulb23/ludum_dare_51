@@ -21,7 +21,10 @@ func ready_up() -> void:
 	max_health = stats.health
 	max_stamina = stats.stamina
 	max_mana = stats.mana
-	pass
+
+	$skeleton.set_hair_color(stats.hair_colour)
+	$skeleton.set_skin_color(stats.skin_colour)
+
 
 func do_attack(other : character) -> void:
 	if (stats.stamina < 2):
