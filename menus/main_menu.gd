@@ -5,8 +5,10 @@ extends Control
 func _ready() -> void:
 	$buttons/container/play.pressed.connect(self._play_pressed)
 	$buttons/container/continue.pressed.connect(self._continue_pressed)
+	$buttons/container/options.pressed.connect(self._options_pressed)
 	$buttons/container/exit.pressed.connect(self._exit_pressed)
 	$character_creator.back_pressed.connect(self._back_pressed)
+	$options.back_pressed.connect(self._back_pressed)
 
 	$buttons/container/play.mouse_entered.connect(AudioManager._play_hover)
 	$buttons/container/continue.mouse_entered.connect(AudioManager._play_hover)
@@ -30,6 +32,11 @@ func _continue_pressed() -> void:
 	await AudioManager._play_click()
 	SceneManager.change_scene("res://places/entry_town.tscn")
 
+func _options_pressed() -> void:
+	_hide_all()
+	await AudioManager._play_click()
+	$options.visible = true
+
 func _back_pressed() -> void:
 	_hide_all()
 	await AudioManager._play_click()
@@ -42,3 +49,4 @@ func _exit_pressed() -> void:
 func _hide_all():
 	$buttons.visible = false
 	$character_creator.visible = false
+	$options.visible = false

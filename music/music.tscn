@@ -10,21 +10,24 @@
 
 [node name="town_theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("1_nl4wx")
-bus = &"Music"
+volume_db = 10.0
+bus = &"music"
 
 [node name="menu_theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_vr25r")
-bus = &"Music"
+bus = &"music"
 
 [node name="battle_theme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_4uhjb")
-bus = &"Music"
+volume_db = 10.0
+bus = &"music"
 
 [node name="button_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_bys4m")
-bus = &"SFX"
+volume_db = -10.0
+bus = &"sfx"
 
 [node name="button_hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wxp4a")
 max_polyphony = 2
-bus = &"SFX"
+bus = &"sfx"

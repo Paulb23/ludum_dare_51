@@ -13,7 +13,6 @@ var rng = RandomNumberGenerator.new()
 
 func ready_up() -> void:
 	rng.randomize()
-	# load sprites
 
 	_current_equiped = stats.main_weapon
 	_using_main = true
@@ -108,6 +107,7 @@ func do_move_left(other : character) -> void:
 	if (stats.stamina < 1):
 		return
 	var tween := get_tree().create_tween()
+
 	tween.tween_property(self, "position", Vector2(_get_new_left_pos(), 0), 0.5)
 	stats.stamina -= 1
 	await $skeleton.animation_play("move")
@@ -116,7 +116,8 @@ func do_jump(other : character) -> void:
 	if (stats.stamina < 2):
 		return
 	var tween := get_tree().create_tween()
-	tween.tween_property(self, "position", Vector2(_get_new_right_pos() + 50, 0), 0.5)
+	if _get_new_right_pos() != self.position.x:
+		tween.tween_property(self, "position", Vector2(_get_new_right_pos() + 50, 0), 0.5)
 	stats.stamina -= 2
 	await $skeleton.animation_play("move")
 
@@ -128,10 +129,17 @@ func do_run(other : character) -> void:
 	pass
 
 func _get_new_right_pos() -> int:
-	return self.position.x + 100
+	var target = self.position.x + 100
+	print(abs(target - %ai.position.x))
+	if (abs(target - %ai.position.x) > 700):
+		target = self.position.x
+	return target
 
 func _get_new_left_pos() -> int:
-	return self.position.x - 100
+	var target = self.position.x - 100
+	if (target <= -300):
+		target = self.position.x
+	return target
 
 func take_hit(damage : int) -> void:
 	stats.health -= damage

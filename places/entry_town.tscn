@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d0kur5n0aay7c"]
+[gd_scene load_steps=28 format=3 uid="uid://d0kur5n0aay7c"]
 
 [ext_resource type="Texture2D" uid="uid://bdl7fu5aro3di" path="res://places/entry_town.png" id="1_xwg8s"]
 [ext_resource type="Script" path="res://places/entry_town.gd" id="1_yguep"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://b8fgjoaheyhym" path="res://icons/move_disabled.png" id="18_x6l1e"]
 [ext_resource type="Script" path="res://places/shop.gd" id="24_fg3kp"]
 [ext_resource type="PackedScene" uid="uid://drlnp3wfhc2bu" path="res://menus/character_creator.tscn" id="25_sl88e"]
+[ext_resource type="Script" path="res://places/town_menu.gd" id="26_mn53x"]
+[ext_resource type="PackedScene" uid="uid://y6y8havo5xv7" path="res://menus/options.tscn" id="27_5xie7"]
 
 [node name="entry_town" type="Control"]
 layout_mode = 3
@@ -108,6 +110,18 @@ texture_disabled = ExtResource("18_x6l1e")
 ignore_texture_size = true
 stretch_mode = 4
 flip_h = true
+
+[node name="to_menu" type="TextureButton" parent="town_view"]
+offset_left = 388.0
+offset_top = 102.0
+offset_right = 458.0
+offset_bottom = 176.0
+texture_normal = ExtResource("15_fkgns")
+texture_pressed = ExtResource("16_jtket")
+texture_hover = ExtResource("17_qr7w6")
+texture_disabled = ExtResource("18_x6l1e")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="world_map" type="Control" parent="."]
 visible = false
@@ -257,3 +271,76 @@ offset_top = 166.0
 offset_right = 1042.0
 offset_bottom = 216.0
 text = "X"
+
+[node name="town_menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("26_mn53x")
+
+[node name="shop" type="ColorRect" parent="town_menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 0.2)
+
+[node name="back" type="ColorRect" parent="town_menu"]
+custom_minimum_size = Vector2i(100, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -62.0
+offset_right = 132.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="town_menu"]
+offset_left = 600.0
+offset_top = 344.0
+offset_right = 679.0
+offset_bottom = 375.0
+theme_override_constants/separation = 30
+
+[node name="continue" type="Button" parent="town_menu/VBoxContainer"]
+offset_right = 79.0
+offset_bottom = 31.0
+text = "Continue"
+
+[node name="options" type="Button" parent="town_menu/VBoxContainer"]
+offset_top = 61.0
+offset_right = 79.0
+offset_bottom = 92.0
+text = "Options"
+
+[node name="menu" type="Button" parent="town_menu/VBoxContainer"]
+offset_top = 122.0
+offset_right = 79.0
+offset_bottom = 153.0
+text = "Menu"
+
+[node name="exit" type="Button" parent="town_menu/VBoxContainer"]
+offset_top = 183.0
+offset_right = 79.0
+offset_bottom = 214.0
+text = "Exit"
+
+[node name="options" parent="town_menu" instance=ExtResource("27_5xie7")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 643.0
+offset_top = 443.0
+offset_right = 643.0
+offset_bottom = 443.0

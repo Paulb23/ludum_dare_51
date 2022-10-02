@@ -49,6 +49,7 @@ Filesystem="*res://autoloads/filesystem.gd"
 SceneManager="*res://autoloads/scene_manager.gd"
 PlayerProfile="*res://autoloads/player_profile.gd"
 AudioManager="*res://autoloads/audio_manager.gd"
+GlobalSettings="*res://autoloads/global_settings.gd"
 
 [display]
 

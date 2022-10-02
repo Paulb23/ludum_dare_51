@@ -4536,40 +4536,40 @@ libraries = {
 
 [node name="block" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_fp7dm")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="heal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_8mjdt")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="hit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_drh2o")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="magic_attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("27_dtbjr")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="mana" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_v1ire")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="meele_attack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_shi4c")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="move" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_wt42d")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="rest" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("31_pbnw4")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="swap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_0s4pt")
-bus = &"SFX"
+bus = &"sfx"
 
 [node name="death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_6mmyk")
-bus = &"SFX"
+bus = &"sfx"

@@ -365,6 +365,7 @@ offset_bottom = 260.0
 size_flags_horizontal = 8
 
 [node name="name" type="Label" parent="ui/vbox/hbox/ai_stats"]
+custom_minimum_size = Vector2i(200, 0)
 layout_mode = 2
 offset_right = 208.0
 offset_bottom = 26.0
