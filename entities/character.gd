@@ -25,6 +25,7 @@ func ready_up() -> void:
 	$skeleton.set_hair_color(stats.hair_colour)
 	$skeleton.set_skin_color(stats.skin_colour)
 	$skeleton._load_weapon(_current_equiped)
+	$skeleton.load_amour(stats.helm)
 
 
 func do_attack(other : character) -> void:

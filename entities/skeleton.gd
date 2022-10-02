@@ -78,7 +78,7 @@ func update_materials() -> void:
 func _update_skin_color(n) -> void:
 	for node in n.get_children():
 		if node is Sprite2D:
-			if node.name in ["hair","eyes","mouth","eye_brows", "weapon"]:
+			if node.name in ["hair","eyes","mouth","eye_brows", "weapon","helm"]:
 				continue
 			node.material.set_shader_parameter("skin_color", skin_color)
 			node.material.set_shader_parameter("skin_color_shade", skin_color_shade)
@@ -90,3 +90,14 @@ func _load_weapon(w : weapon) -> void:
 		$skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D/hand_rightBone2D/weapon.texture = load(w.sprite)
 	else:
 		$skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D/hand_rightBone2D/weapon.texture = null
+
+func load_amour(w : armour) -> void:
+	if w == null:
+		return
+	if w.type == armour.types.helm:
+		if w.sprite != "":
+			$skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head/helm.texture = load(w.sprite)
+			$skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head/hair.visible = false
+		else:
+			$skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head/helm.texture = null
+			$skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head/hair.visible = true

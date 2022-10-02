@@ -1,5 +1,9 @@
 extends ColorRect
 
+var armours = [
+	preload("res://entities/armour/iron_helm.tres")
+]
+
 var magic = [
 	preload("res://entities/weapons/staff.tres")
 ]
@@ -32,23 +36,23 @@ func load_shop(type : String) -> void:
 
 	if type == "weapons" || type == "magic":
 		$HBoxContainer/VBoxContainer/HBoxContainer/equip_seconday.disabled = false
-		shop_type = type
-
-		for item in weapons if type == "weapons" else magic:
-			if item.unlocked_icon == "":
-				continue
-			var tb = TextureButton.new()
-			if PlayerProfile.stats.brought_items.has(item.name):
-				tb.texture_normal = await Filesystem.load_resource(item.unlocked_icon) as Texture2D
-			else:
-				tb.texture_normal = await Filesystem.load_resource(item.locked_icon) as Texture2D
-			if item.hover_icon != "":
-				tb.texture_hover = await Filesystem.load_resource(item.hover_icon) as Texture2D
-
-			tb.mouse_entered.connect(self.item_hovered.bind(item, tb))
-			$HBoxContainer/GridContainer.add_child(tb)
 	else:
 		$HBoxContainer/VBoxContainer/HBoxContainer/equip_seconday.disabled = true
+
+	shop_type = type
+	for item in weapons if type == "weapons" else magic if type == "magic" else armours:
+		if item.unlocked_icon == "":
+			continue
+		var tb = TextureButton.new()
+		if PlayerProfile.stats.brought_items.has(item.name):
+			tb.texture_normal = await Filesystem.load_resource(item.unlocked_icon) as Texture2D
+		else:
+			tb.texture_normal = await Filesystem.load_resource(item.locked_icon) as Texture2D
+		if item.hover_icon != "":
+			tb.texture_hover = await Filesystem.load_resource(item.hover_icon) as Texture2D
+
+		tb.mouse_entered.connect(self.item_hovered.bind(item, tb))
+		$HBoxContainer/GridContainer.add_child(tb)
 
 	$Panel/Label.text = str("Gold: ", PlayerProfile.stats.gold)
 
@@ -66,13 +70,22 @@ func item_hovered(res, tb) -> void:
 
 	$HBoxContainer/VBoxContainer/name.text = res.name
 
+	var owns : bool = PlayerProfile.stats.brought_items.has(res.name)
 	if shop_type == "weapons" || shop_type == "magic":
 		var text = str("Gold: ", res.price, "\n\nDamage: ", res.damage, "\nRange: ", res.range)
 		$HBoxContainer/VBoxContainer/stats.text = text
 
-		$HBoxContainer/VBoxContainer/HBoxContainer/equip.disabled = !PlayerProfile.stats.brought_items.has(res.name) || PlayerProfile.stats.main_weapon.name == res.name
-		$HBoxContainer/VBoxContainer/HBoxContainer/equip_seconday.disabled = !PlayerProfile.stats.brought_items.has(res.name) || PlayerProfile.stats.secondary_weapon.name == res.name
-		$HBoxContainer/VBoxContainer/HBoxContainer/buy.disabled = PlayerProfile.stats.brought_items.has(res.name) || PlayerProfile.stats.gold < res.price
+		$HBoxContainer/VBoxContainer/HBoxContainer/equip.disabled = !owns || PlayerProfile.stats.main_weapon.name == res.name
+		$HBoxContainer/VBoxContainer/HBoxContainer/equip_seconday.disabled = !owns || PlayerProfile.stats.secondary_weapon.name == res.name
+		$HBoxContainer/VBoxContainer/HBoxContainer/buy.disabled = owns || PlayerProfile.stats.gold < res.price
+
+	if shop_type == "armour":
+		var text = str("Gold: ", res.price, "\n\nArmour: ", res.armour)
+		$HBoxContainer/VBoxContainer/stats.text = text
+
+		if res.type == armour.types.helm:
+			$HBoxContainer/VBoxContainer/HBoxContainer/equip.disabled = !owns || (PlayerProfile.stats.helm && PlayerProfile.stats.helm.name == res.name)
+			$HBoxContainer/VBoxContainer/HBoxContainer/buy.disabled = owns || PlayerProfile.stats.gold < res.price
 
 func _buy_presed() -> void:
 	PlayerProfile.stats.brought_items.push_back(current.name)
@@ -83,6 +96,10 @@ func _buy_presed() -> void:
 func _eqiup() -> void:
 	if shop_type == "weapons" || shop_type == "magic":
 		PlayerProfile.stats.main_weapon = current
+
+	if shop_type == "armour":
+		if current.type == armour.types.helm:
+			PlayerProfile.stats.helm = current
 	item_hovered(current, last_button)
 
 func _eqiup_secondary() -> void:

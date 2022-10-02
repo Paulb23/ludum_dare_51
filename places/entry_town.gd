@@ -8,6 +8,7 @@ func _ready() -> void:
 
 	$town_view/weapon_shop.pressed.connect(self._weapon_shop_pressed)
 	$town_view/mana_shop.pressed.connect(self._mana_shop_pressed)
+	$town_view/armour_shop.pressed.connect(self._armour_shop_pressed)
 	$town_view/to_stats.pressed.connect(self._stats_pressed)
 
 	$character_creator.hide_start()
@@ -26,6 +27,10 @@ func _weapon_shop_pressed() ->void:
 
 func _mana_shop_pressed() ->void:
 	$shop.load_shop("magic")
+	$shop.visible = true
+
+func _armour_shop_pressed() -> void:
+	$shop.load_shop("armour")
 	$shop.visible = true
 
 func _map_pressed() -> void:

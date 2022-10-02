@@ -61,6 +61,7 @@ script = ExtResource("1_8rm4t")
 
 [node name="background" type="TextureRect" parent="."]
 modulate = Color(0.486275, 0.486275, 0.486275, 1)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -69,6 +70,7 @@ grow_vertical = 2
 texture = ExtResource("2_t58yp")
 
 [node name="forground" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -78,6 +80,7 @@ texture = ExtResource("3_kr5m4")
 
 [node name="ui" type="Panel" parent="."]
 custom_minimum_size = Vector2i(0, 275)
+layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -88,6 +91,7 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_thkbi")
 
 [node name="vbox" type="VBoxContainer" parent="ui"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -98,29 +102,34 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="hbox" type="HBoxContainer" parent="ui/vbox"]
+layout_mode = 2
 offset_right = 1280.0
 offset_bottom = 260.0
 size_flags_vertical = 4
 
 [node name="MarginContainer3" type="MarginContainer" parent="ui/vbox/hbox"]
+layout_mode = 2
 offset_right = 5.0
 offset_bottom = 260.0
 theme_override_constants/margin_left = 5
 
 [node name="player_stats" type="VBoxContainer" parent="ui/vbox/hbox"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 9.0
 offset_right = 209.0
 offset_bottom = 260.0
 
 [node name="name" type="Label" parent="ui/vbox/hbox/player_stats"]
 custom_minimum_size = Vector2i(200, 0)
+layout_mode = 2
 offset_right = 200.0
 offset_bottom = 23.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="health" type="Label" parent="ui/vbox/hbox/player_stats"]
+layout_mode = 2
 offset_top = 27.0
 offset_right = 200.0
 offset_bottom = 53.0
@@ -130,6 +139,7 @@ vertical_alignment = 1
 
 [node name="health_value" type="ProgressBar" parent="ui/vbox/hbox/player_stats"]
 custom_minimum_size = Vector2i(0, 25)
+layout_mode = 2
 offset_top = 57.0
 offset_right = 200.0
 offset_bottom = 82.0
@@ -138,6 +148,7 @@ value = 50.0
 show_percentage = false
 
 [node name="value" type="Label" parent="ui/vbox/hbox/player_stats/health_value"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -152,6 +163,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="stamina" type="Label" parent="ui/vbox/hbox/player_stats"]
+layout_mode = 2
 offset_top = 86.0
 offset_right = 200.0
 offset_bottom = 112.0
@@ -161,6 +173,7 @@ vertical_alignment = 1
 
 [node name="stamina_value" type="ProgressBar" parent="ui/vbox/hbox/player_stats"]
 custom_minimum_size = Vector2i(0, 25)
+layout_mode = 2
 offset_top = 116.0
 offset_right = 200.0
 offset_bottom = 141.0
@@ -168,6 +181,7 @@ value = 50.0
 show_percentage = false
 
 [node name="value" type="Label" parent="ui/vbox/hbox/player_stats/stamina_value"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -182,6 +196,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="mana" type="Label" parent="ui/vbox/hbox/player_stats"]
+layout_mode = 2
 offset_top = 145.0
 offset_right = 200.0
 offset_bottom = 171.0
@@ -191,6 +206,7 @@ vertical_alignment = 1
 
 [node name="mana_value" type="ProgressBar" parent="ui/vbox/hbox/player_stats"]
 custom_minimum_size = Vector2i(0, 25)
+layout_mode = 2
 offset_top = 175.0
 offset_right = 200.0
 offset_bottom = 200.0
@@ -198,6 +214,7 @@ value = 50.0
 show_percentage = false
 
 [node name="value" type="Label" parent="ui/vbox/hbox/player_stats/mana_value"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -212,6 +229,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="ui/vbox/hbox"]
+layout_mode = 2
 offset_left = 213.0
 offset_right = 233.0
 offset_bottom = 260.0
@@ -219,6 +237,7 @@ theme_override_constants/margin_left = 20
 
 [node name="actions" type="GridContainer" parent="ui/vbox/hbox"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 237.0
 offset_right = 893.0
 offset_bottom = 260.0
@@ -227,6 +246,7 @@ size_flags_vertical = 4
 columns = 5
 
 [node name="attack" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
 texture_normal = ExtResource("2_1ujp8")
@@ -235,6 +255,7 @@ texture_hover = ExtResource("4_ya15i")
 texture_disabled = ExtResource("5_06r8f")
 
 [node name="quick_attack" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 132.0
 offset_right = 260.0
 offset_bottom = 128.0
@@ -244,6 +265,7 @@ texture_hover = ExtResource("8_jwogv")
 texture_disabled = ExtResource("9_a172h")
 
 [node name="swap" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 264.0
 offset_right = 392.0
 offset_bottom = 128.0
@@ -253,6 +275,7 @@ texture_hover = ExtResource("12_oa4bg")
 texture_disabled = ExtResource("13_np18q")
 
 [node name="heal" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 396.0
 offset_right = 524.0
 offset_bottom = 128.0
@@ -262,6 +285,7 @@ texture_hover = ExtResource("16_uj2jk")
 texture_disabled = ExtResource("17_7w1vp")
 
 [node name="power_up" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 528.0
 offset_right = 656.0
 offset_bottom = 128.0
@@ -271,6 +295,7 @@ texture_hover = ExtResource("20_knv8d")
 texture_disabled = ExtResource("21_07tv2")
 
 [node name="move_left" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_top = 132.0
 offset_right = 128.0
 offset_bottom = 260.0
@@ -280,6 +305,7 @@ texture_hover = ExtResource("24_fxvus")
 texture_disabled = ExtResource("25_fj20d")
 
 [node name="move_right" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 132.0
 offset_top = 132.0
 offset_right = 260.0
@@ -291,6 +317,7 @@ texture_disabled = ExtResource("25_fj20d")
 flip_h = true
 
 [node name="jump" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 264.0
 offset_top = 132.0
 offset_right = 392.0
@@ -301,6 +328,7 @@ texture_hover = ExtResource("28_xujgh")
 texture_disabled = ExtResource("29_byesm")
 
 [node name="rest" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 396.0
 offset_top = 132.0
 offset_right = 524.0
@@ -311,6 +339,7 @@ texture_hover = ExtResource("29_yywmx")
 texture_disabled = ExtResource("30_r0pc0")
 
 [node name="run" type="TextureButton" parent="ui/vbox/hbox/actions"]
+layout_mode = 2
 offset_left = 528.0
 offset_top = 132.0
 offset_right = 656.0
@@ -321,6 +350,7 @@ texture_hover = ExtResource("33_ftq12")
 texture_disabled = ExtResource("34_clk74")
 
 [node name="MarginContainer2" type="MarginContainer" parent="ui/vbox/hbox"]
+layout_mode = 2
 offset_left = 897.0
 offset_right = 1059.0
 offset_bottom = 260.0
@@ -328,12 +358,14 @@ size_flags_horizontal = 3
 
 [node name="ai_stats" type="VBoxContainer" parent="ui/vbox/hbox"]
 unique_name_in_owner = true
+layout_mode = 2
 offset_left = 1063.0
 offset_right = 1271.0
 offset_bottom = 260.0
 size_flags_horizontal = 8
 
 [node name="name" type="Label" parent="ui/vbox/hbox/ai_stats"]
+layout_mode = 2
 offset_right = 208.0
 offset_bottom = 26.0
 text = "Out great loard the second"
@@ -341,6 +373,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="health" type="Label" parent="ui/vbox/hbox/ai_stats"]
+layout_mode = 2
 offset_top = 30.0
 offset_right = 208.0
 offset_bottom = 56.0
@@ -350,6 +383,7 @@ vertical_alignment = 1
 
 [node name="health_value" type="ProgressBar" parent="ui/vbox/hbox/ai_stats"]
 custom_minimum_size = Vector2i(0, 25)
+layout_mode = 2
 offset_top = 60.0
 offset_right = 208.0
 offset_bottom = 85.0
@@ -358,6 +392,7 @@ value = 50.0
 show_percentage = false
 
 [node name="value" type="Label" parent="ui/vbox/hbox/ai_stats/health_value"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -372,6 +407,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="stamina" type="Label" parent="ui/vbox/hbox/ai_stats"]
+layout_mode = 2
 offset_top = 89.0
 offset_right = 208.0
 offset_bottom = 115.0
@@ -381,6 +417,7 @@ vertical_alignment = 1
 
 [node name="stamina_value" type="ProgressBar" parent="ui/vbox/hbox/ai_stats"]
 custom_minimum_size = Vector2i(0, 25)
+layout_mode = 2
 offset_top = 119.0
 offset_right = 208.0
 offset_bottom = 144.0
@@ -388,6 +425,7 @@ value = 50.0
 show_percentage = false
 
 [node name="value" type="Label" parent="ui/vbox/hbox/ai_stats/stamina_value"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -402,6 +440,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="mana" type="Label" parent="ui/vbox/hbox/ai_stats"]
+layout_mode = 2
 offset_top = 148.0
 offset_right = 208.0
 offset_bottom = 174.0
@@ -411,6 +450,7 @@ vertical_alignment = 1
 
 [node name="mana_value" type="ProgressBar" parent="ui/vbox/hbox/ai_stats"]
 custom_minimum_size = Vector2i(0, 25)
+layout_mode = 2
 offset_top = 178.0
 offset_right = 208.0
 offset_bottom = 203.0
@@ -418,6 +458,7 @@ value = 50.0
 show_percentage = false
 
 [node name="value" type="Label" parent="ui/vbox/hbox/ai_stats/mana_value"]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -432,12 +473,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MarginContainer4" type="MarginContainer" parent="ui/vbox/hbox"]
+layout_mode = 2
 offset_left = 1275.0
 offset_right = 1280.0
 offset_bottom = 260.0
 theme_override_constants/margin_right = 5
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = -0.5

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://n23ayww7l1ww"]
+
+[ext_resource type="Script" path="res://entities/armour/armour.gd" id="1_2bjim"]
+
+[resource]
+script = ExtResource("1_2bjim")
+name = "Iron Helm"
+type = 0
+price = 100
+armour = 5
+sprite = "res://icons/armour/ironhelm_sprite.png"
+locked_icon = "res://icons/armour/ironhelm_locked.png"
+unlocked_icon = "res://icons/armour/ironhelm_unlocked.png"
+hover_icon = "res://icons/armour/ironhelm_hovered.png"

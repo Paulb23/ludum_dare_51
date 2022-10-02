@@ -48,6 +48,7 @@ func make_visable(p_stats : character_stats) -> void:
 	$skeleton.set_hair_color(stats.hair_colour)
 	$skeleton.set_skin_color(stats.skin_colour)
 	$skeleton._load_weapon(stats.main_weapon)
+	$skeleton.load_amour(stats.helm)
 	_update_stats_ui()
 	visible = true
 

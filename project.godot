@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Resource",
+"class": &"armour",
+"language": &"GDScript",
+"path": "res://entities/armour/armour.gd"
+}, {
 "base": "Node",
 "class": &"character",
 "language": &"GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[{
 "path": "res://entities/weapons/weapon.gd"
 }]
 _global_script_class_icons={
+"armour": "",
 "character": "",
 "character_stats": "",
 "weapon": ""

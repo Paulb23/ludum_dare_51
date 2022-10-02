@@ -771,21 +771,21 @@ script = ExtResource("1_2aese")
 [node name="upper_arm_left" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(84.9983, -78.0085)
-rotation = -0.00518384
+rotation = -0.00518383
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("1_l8hc4")
 
 [node name="lower_arm_left" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(114.993, 88.9626)
-rotation = -0.00518384
+rotation = -0.00518383
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("2_eajjw")
 
 [node name="hand_left" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(134.99, 188.945)
-rotation = -0.00518384
+rotation = -0.00518383
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("3_67mnu")
 
@@ -975,6 +975,9 @@ texture = ExtResource("16_ufrhw")
 [node name="mouth" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head"]
 position = Vector2(13, 40)
 texture = ExtResource("17_s3hq8")
+
+[node name="helm" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/neckBone2D/headBone2D/head"]
+position = Vector2(-1, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"

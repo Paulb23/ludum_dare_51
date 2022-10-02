@@ -36,7 +36,7 @@ grow_vertical = 2
 script = ExtResource("1_yguep")
 
 [node name="town_view" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,13 +44,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="town" type="TextureRect" parent="town_view"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_xwg8s")
 
 [node name="mana_shop" type="TextureButton" parent="town_view"]
-layout_mode = 0
 offset_left = 222.0
 offset_top = 284.0
 offset_right = 293.0
@@ -63,7 +61,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="weapon_shop" type="TextureButton" parent="town_view"]
-layout_mode = 0
 offset_left = 146.0
 offset_top = 467.0
 offset_right = 232.0
@@ -76,7 +73,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="armour_shop" type="TextureButton" parent="town_view"]
-layout_mode = 0
 offset_left = 867.0
 offset_top = 204.0
 offset_right = 943.0
@@ -89,7 +85,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="to_stats" type="TextureButton" parent="town_view"]
-layout_mode = 0
 offset_left = 523.0
 offset_top = 345.0
 offset_right = 593.0
@@ -102,7 +97,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="to_map" type="TextureButton" parent="town_view"]
-layout_mode = 0
 offset_left = 1046.0
 offset_top = 359.0
 offset_right = 1116.0
@@ -117,19 +111,17 @@ flip_h = true
 
 [node name="world_map" type="Control" parent="."]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="map" type="TextureRect" parent="world_map"]
-layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_r6bqm")
 
 [node name="town" type="Button" parent="world_map"]
-layout_mode = 0
 offset_left = 573.0
 offset_top = 274.0
 offset_right = 624.0
@@ -138,7 +130,6 @@ text = "Town
 "
 
 [node name="level_1" type="Button" parent="world_map"]
-layout_mode = 0
 offset_left = 252.0
 offset_top = 345.0
 offset_right = 303.0
@@ -148,11 +139,9 @@ text = "1
 
 [node name="character_creator" parent="." instance=ExtResource("25_sl88e")]
 visible = false
-layout_mode = 1
 
 [node name="shop" type="ColorRect" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -163,7 +152,6 @@ script = ExtResource("24_fg3kp")
 
 [node name="Panel" type="ColorRect" parent="shop"]
 custom_minimum_size = Vector2i(800, 400)
-layout_mode = 0
 offset_left = 243.0
 offset_top = 163.0
 offset_right = 1043.0
@@ -171,7 +159,6 @@ offset_bottom = 563.0
 color = Color(0.129412, 0.0862745, 0.180392, 1)
 
 [node name="Label" type="Label" parent="shop/Panel"]
-layout_mode = 0
 offset_left = 12.0
 offset_top = 366.0
 offset_right = 75.0
@@ -180,7 +167,6 @@ text = "Gold: 50
 "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="shop"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -195,7 +181,6 @@ grow_vertical = 2
 
 [node name="GridContainer" type="GridContainer" parent="shop/HBoxContainer"]
 custom_minimum_size = Vector2i(450, 350)
-layout_mode = 2
 offset_right = 450.0
 offset_bottom = 378.0
 grow_horizontal = 2
@@ -205,14 +190,12 @@ theme_override_constants/v_separation = 30
 columns = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="shop/HBoxContainer"]
-layout_mode = 2
 offset_left = 454.0
 offset_right = 754.0
 offset_bottom = 378.0
 
 [node name="name" type="Label" parent="shop/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2i(300, 50)
-layout_mode = 2
 offset_right = 300.0
 offset_bottom = 50.0
 text = "item name here"
@@ -221,7 +204,6 @@ vertical_alignment = 1
 
 [node name="stats" type="Label" parent="shop/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2i(300, 250)
-layout_mode = 2
 offset_top = 54.0
 offset_right = 300.0
 offset_bottom = 304.0
@@ -235,21 +217,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HFlowContainer" parent="shop/HBoxContainer/VBoxContainer"]
-layout_mode = 2
 offset_top = 308.0
 offset_right = 300.0
 offset_bottom = 374.0
 
 [node name="buy" type="Button" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2i(145, 0)
-layout_mode = 2
 offset_right = 145.0
 offset_bottom = 31.0
 text = "Buy"
 
 [node name="equip" type="Button" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2i(145, 0)
-layout_mode = 2
 offset_left = 149.0
 offset_right = 294.0
 offset_bottom = 31.0
@@ -257,7 +236,6 @@ text = "Equip
 "
 
 [node name="MarginContainer" type="MarginContainer" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 offset_top = 35.0
 offset_right = 80.0
 offset_bottom = 66.0
@@ -265,7 +243,6 @@ theme_override_constants/margin_right = 80
 
 [node name="equip_seconday" type="Button" parent="shop/HBoxContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_left = 84.0
 offset_top = 35.0
 offset_right = 220.0
@@ -275,7 +252,6 @@ text = "Equip secondary
 
 [node name="close" type="Button" parent="shop"]
 custom_minimum_size = Vector2i(50, 50)
-layout_mode = 0
 offset_left = 992.0
 offset_top = 166.0
 offset_right = 1042.0

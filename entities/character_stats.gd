@@ -14,6 +14,8 @@ class_name character_stats
 @export var main_weapon : weapon = preload("res://entities/weapons/unarmed.tres")
 @export var secondary_weapon : weapon = preload("res://entities/weapons/unarmed.tres")
 
+@export var helm : armour = null
+
 # style
 @export var hair_colour : String = "red"
 @export var skin_colour : String = "white"
