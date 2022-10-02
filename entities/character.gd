@@ -40,7 +40,7 @@ func do_attack(other : character) -> void:
 		if _current_equiped.type == weapon.types.magic:
 			chance = ((stats.wisdom * (1.5 + (stats.luck * 0.01))) - (other.stats.agility + (other.stats.luck * 0.01))) * 100
 
-		if (rng.randi_range(0, 100) < chance):
+		if (rng.randi_range(0, 100) < abs(chance)):
 			damage = max(1, _current_equiped.damage - stats.constitution)
 
 	stats.stamina -= 2
@@ -63,8 +63,11 @@ func do_quick_attack(other : character) -> void:
 		if _current_equiped.type == weapon.types.magic:
 			chance = ((stats.wisdom * (1.7 + (stats.luck * 0.01))) - (other.stats.agility + (other.stats.luck * 0.01))) * 100
 
-		if (rng.randi_range(0, 100) < chance):
+		if (rng.randi_range(0, 100) < abs(chance)):
 			damage = max(1, round(_current_equiped.damage / 2) - stats.constitution)
+
+	if other.stats.helm:
+		damage -= 2
 
 	stats.stamina -= 1
 	other.take_hit(damage)
@@ -130,7 +133,6 @@ func do_run(other : character) -> void:
 
 func _get_new_right_pos() -> int:
 	var target = self.position.x + 100
-	print(abs(target - %ai.position.x))
 	if (abs(target - %ai.position.x) > 700):
 		target = self.position.x
 	return target

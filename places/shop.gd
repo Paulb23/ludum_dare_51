@@ -30,6 +30,7 @@ func _ready() -> void:
 	$close.pressed.connect(self._close_shop)
 
 func _close_shop():
+	current = null
 	AudioManager._play_click()
 	self.visible = false
 
@@ -59,6 +60,11 @@ func load_shop(type : String) -> void:
 
 		tb.mouse_entered.connect(self.item_hovered.bind(item, tb))
 		$HBoxContainer/GridContainer.add_child(tb)
+
+	if !current:
+		$HBoxContainer/VBoxContainer/HBoxContainer/equip_seconday.disabled = true
+		$HBoxContainer/VBoxContainer/HBoxContainer/buy.disabled = true
+		$HBoxContainer/VBoxContainer/HBoxContainer/equip.disabled = true
 
 	$Panel/Label.text = str("Gold: ", PlayerProfile.stats.gold)
 
@@ -100,6 +106,7 @@ func _buy_presed() -> void:
 	PlayerProfile.stats.gold -= current.price
 	load_shop(shop_type)
 	item_hovered(current, last_button)
+	PlayerProfile.save_stats()
 
 func _eqiup() -> void:
 	AudioManager._play_click()
@@ -110,8 +117,10 @@ func _eqiup() -> void:
 		if current.type == armour.types.helm:
 			PlayerProfile.stats.helm = current
 	item_hovered(current, last_button)
+	PlayerProfile.save_stats()
 
 func _eqiup_secondary() -> void:
 	AudioManager._play_click()
 	PlayerProfile.stats.secondary_weapon = current
+	PlayerProfile.save_stats()
 	item_hovered(current, last_button)

@@ -4326,7 +4326,7 @@ texture = ExtResource("2_eajjw")
 material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(134.99, 188.945)
 rotation = -0.0051839
-scale = Vector2(0.999826, 0.999826)
+scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("3_67mnu")
 
 [node name="upper_leg_left" type="Sprite2D" parent="."]

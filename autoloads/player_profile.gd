@@ -7,6 +7,9 @@ func set_stats(p_stats : character_stats) -> void:
 	stats.is_player = true
 	ResourceSaver.save(stats, "user://stats.tres")
 
+func save_stats() -> void:
+	ResourceSaver.save(stats, "user://stats.tres")
+
 func get_stats() -> character_stats:
 	return stats.duplicate()
 

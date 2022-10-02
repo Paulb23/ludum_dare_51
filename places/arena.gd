@@ -1,5 +1,7 @@
 extends Control
 
+var turn_time = 10
+
 var game_over := false
 var player_won := false
 var players_turn := true
@@ -79,6 +81,8 @@ func _update_ui() -> void:
 func _end_turn() -> void:
 	if game_over:
 		return
+
+	turn_time = 10
 	players_turn = !players_turn
 	if !players_turn:
 		%ai.do_turn(%player)
@@ -164,3 +168,12 @@ func _do_action(action : String) -> void:
 			$game_over/VBoxContainer/leave.text = "Back to Town"
 			$game_over.visible = true
 	_end_turn()
+
+
+func _on_timer_timeout() -> void:
+	if game_over:
+		return
+	turn_time -= 1
+	if turn_time == 0:
+		_end_turn()
+	$Label.text = str(turn_time)
