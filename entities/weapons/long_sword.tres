@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://xvdsrkbibeyl"]
+
+[ext_resource type="Script" path="res://entities/weapons/weapon.gd" id="1_ck13n"]
+
+[resource]
+script = ExtResource("1_ck13n")
+name = "Long sword"
+type = 0
+price = 200
+damage = 10
+range = 500
+sprite = "res://icons/weapons/longsword_sprite.png"
+locked_icon = "res://icons/weapons/longsword_locked.png"
+unlocked_icon = "res://icons/weapons/longsword_unlocked.png"
+hover_icon = "res://icons/weapons/longsword_hover.png"
+clicked_icon = null

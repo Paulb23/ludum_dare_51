@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://drlnp3wfhc2bu"]
+[gd_scene load_steps=5 format=3 uid="uid://drlnp3wfhc2bu"]
 
 [ext_resource type="Script" path="res://menus/character_creator.gd" id="1_t3vl0"]
 [ext_resource type="Script" path="res://menus/spin_control.gd" id="2_3oym1"]
 [ext_resource type="PackedScene" uid="uid://ob4jrbrmxdmv" path="res://entities/skeleton.tscn" id="2_ii88o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo4ja"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
 
 [node name="character_creator" type="Control"]
 layout_mode = 3
@@ -24,6 +27,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2i(280, 0)
 offset_right = 280.0
 offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xo4ja")
 
 [node name="name" type="VBoxContainer" parent="HBoxContainer/stats"]
 anchors_preset = -1
@@ -38,28 +42,28 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 
 [node name="name" type="VBoxContainer" parent="HBoxContainer/stats/name"]
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 61.0
 
 [node name="label" type="Label" parent="HBoxContainer/stats/name/name"]
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 26.0
 text = "Name"
 
 [node name="name" type="LineEdit" parent="HBoxContainer/stats/name/name"]
 unique_name_in_owner = true
 offset_top = 30.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 61.0
 max_length = 20
 
 [node name="to_allocate" type="VBoxContainer" parent="HBoxContainer/stats/name"]
 offset_top = 111.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 167.0
 
 [node name="label" type="Label" parent="HBoxContainer/stats/name/to_allocate"]
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 26.0
 text = "Remaining allocations"
 horizontal_alignment = 1
@@ -67,7 +71,7 @@ horizontal_alignment = 1
 [node name="to_allocate" type="Label" parent="HBoxContainer/stats/name/to_allocate"]
 unique_name_in_owner = true
 offset_top = 30.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 56.0
 text = "1
 "
@@ -75,11 +79,11 @@ horizontal_alignment = 1
 
 [node name="stats" type="HBoxContainer" parent="HBoxContainer/stats/name"]
 offset_top = 217.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 528.0
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/stats/name/stats"]
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 311.0
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 9
@@ -94,22 +98,23 @@ text = "Health:
 
 [node name="health_value" type="Label" parent="HBoxContainer/stats/name/stats/GridContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2i(30, 0)
 offset_left = 131.0
 offset_top = 2.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 28.0
 text = "1
 "
 
 [node name="health_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
-offset_right = 185.0
+offset_left = 191.0
+offset_right = 205.0
 offset_bottom = 31.0
 text = "-"
 
 [node name="health_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
-offset_right = 233.0
+offset_left = 235.0
+offset_right = 253.0
 offset_bottom = 31.0
 text = "+"
 
@@ -124,22 +129,22 @@ text = "Stamina:
 unique_name_in_owner = true
 offset_left = 131.0
 offset_top = 42.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 68.0
 text = "1
 "
 
 [node name="stamina_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
+offset_left = 191.0
 offset_top = 40.0
-offset_right = 185.0
+offset_right = 205.0
 offset_bottom = 71.0
 text = "-"
 
 [node name="stamina_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
+offset_left = 235.0
 offset_top = 40.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 71.0
 text = "+"
 
@@ -154,22 +159,22 @@ text = "Mana:
 unique_name_in_owner = true
 offset_left = 131.0
 offset_top = 82.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 108.0
 text = "1
 "
 
 [node name="mana_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
+offset_left = 191.0
 offset_top = 80.0
-offset_right = 185.0
+offset_right = 205.0
 offset_bottom = 111.0
 text = "-"
 
 [node name="mana_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
+offset_left = 235.0
 offset_top = 80.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 111.0
 text = "+"
 
@@ -184,22 +189,22 @@ text = "Agility:
 unique_name_in_owner = true
 offset_left = 131.0
 offset_top = 122.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 148.0
 text = "1
 "
 
 [node name="agility_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
+offset_left = 191.0
 offset_top = 120.0
-offset_right = 185.0
+offset_right = 205.0
 offset_bottom = 151.0
 text = "-"
 
 [node name="agility_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
+offset_left = 235.0
 offset_top = 120.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 151.0
 text = "+"
 
@@ -214,22 +219,22 @@ text = "Constitution:
 unique_name_in_owner = true
 offset_left = 131.0
 offset_top = 162.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 188.0
 text = "1
 "
 
 [node name="constitution_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
+offset_left = 191.0
 offset_top = 160.0
-offset_right = 185.0
+offset_right = 205.0
 offset_bottom = 191.0
 text = "-"
 
 [node name="constitution_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
+offset_left = 235.0
 offset_top = 160.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 191.0
 text = "+"
 
@@ -244,22 +249,22 @@ text = "Strength:
 unique_name_in_owner = true
 offset_left = 131.0
 offset_top = 202.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 228.0
 text = "1
 "
 
 [node name="strength_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
+offset_left = 191.0
 offset_top = 200.0
-offset_right = 185.0
+offset_right = 205.0
 offset_bottom = 231.0
 text = "-"
 
 [node name="strength_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
+offset_left = 235.0
 offset_top = 200.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 231.0
 text = "+"
 
@@ -274,22 +279,22 @@ text = "Wisdom:
 unique_name_in_owner = true
 offset_left = 131.0
 offset_top = 242.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 268.0
 text = "1
 "
 
 [node name="wisdom_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
+offset_left = 191.0
 offset_top = 240.0
-offset_right = 185.0
+offset_right = 205.0
 offset_bottom = 271.0
 text = "-"
 
 [node name="wisdom_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
+offset_left = 235.0
 offset_top = 240.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 271.0
 text = "+"
 
@@ -304,29 +309,29 @@ text = "Luck:
 unique_name_in_owner = true
 offset_left = 131.0
 offset_top = 282.0
-offset_right = 141.0
+offset_right = 161.0
 offset_bottom = 308.0
 text = "1
 "
 
 [node name="luck_less" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 171.0
+offset_left = 191.0
 offset_top = 280.0
-offset_right = 185.0
+offset_right = 205.0
 offset_bottom = 311.0
 text = "-
 "
 
 [node name="luck_more" type="Button" parent="HBoxContainer/stats/name/stats/GridContainer"]
-offset_left = 215.0
+offset_left = 235.0
 offset_top = 280.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 311.0
 text = "+"
 
 [node name="back" type="Button" parent="HBoxContainer/stats/name"]
 offset_top = 578.0
-offset_right = 233.0
+offset_right = 253.0
 offset_bottom = 609.0
 text = "back"
 
@@ -342,6 +347,7 @@ custom_minimum_size = Vector2i(280, 0)
 offset_left = 1000.0
 offset_right = 1280.0
 offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xo4ja")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/style2"]
 anchors_preset = -1

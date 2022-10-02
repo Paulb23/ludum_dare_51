@@ -78,9 +78,15 @@ func update_materials() -> void:
 func _update_skin_color(n) -> void:
 	for node in n.get_children():
 		if node is Sprite2D:
-			if node.name in ["hair","eyes","mouth","eye_brows"]:
+			if node.name in ["hair","eyes","mouth","eye_brows", "weapon"]:
 				continue
 			node.material.set_shader_parameter("skin_color", skin_color)
 			node.material.set_shader_parameter("skin_color_shade", skin_color_shade)
 		else:
 			_update_skin_color(node)
+
+func _load_weapon(w : weapon) -> void:
+	if w.sprite != "":
+		$skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D/hand_rightBone2D/weapon.texture = load(w.sprite)
+	else:
+		$skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D/hand_rightBone2D/weapon.texture = null

@@ -771,21 +771,21 @@ script = ExtResource("1_2aese")
 [node name="upper_arm_left" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(84.9983, -78.0085)
-rotation = -0.00518385
+rotation = -0.00518384
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("1_l8hc4")
 
 [node name="lower_arm_left" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(114.993, 88.9626)
-rotation = -0.00518385
+rotation = -0.00518384
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("2_eajjw")
 
 [node name="hand_left" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dao4d")
 position = Vector2(134.99, 188.945)
-rotation = -0.00518385
+rotation = -0.00518384
 scale = Vector2(0.999827, 0.999827)
 texture = ExtResource("3_67mnu")
 
@@ -908,6 +908,13 @@ rest = Transform2D(1, 0, 0, 1, -11, 172)
 [node name="hand_rightBone2D" type="Bone2D" parent="skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D"]
 position = Vector2(33, 141)
 rest = Transform2D(1, 0, 0, 1, 33, 141)
+
+[node name="weapon" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D/hand_rightBone2D"]
+modulate = Color(0.0745098, 0.027451, 0.0431373, 1)
+material = SubResource("ShaderMaterial_e2uke")
+position = Vector2(101.637, -43.8853)
+rotation = 0.00518386
+scale = Vector2(2, 2)
 
 [node name="hand_right" type="Sprite2D" parent="skeleton/hipBone2D/torsoBone2D/upper_arm_rightBone2D/lower_arm_rightBone2D/hand_rightBone2D"]
 material = SubResource("ShaderMaterial_e2uke")

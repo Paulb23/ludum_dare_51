@@ -33,6 +33,9 @@ func _skin_changed(color):
 func _back_presed() -> void:
 	back_pressed.emit()
 
+func hide_start() ->void:
+	$HBoxContainer/style2/VBoxContainer/start.visible = false
+
 func start_pressed() -> void:
 	if stats.name == "":
 		return
@@ -42,6 +45,9 @@ func start_pressed() -> void:
 
 func make_visable(p_stats : character_stats) -> void:
 	stats = p_stats
+	$skeleton.set_hair_color(stats.hair_colour)
+	$skeleton.set_skin_color(stats.skin_colour)
+	$skeleton._load_weapon(stats.main_weapon)
 	_update_stats_ui()
 	visible = true
 

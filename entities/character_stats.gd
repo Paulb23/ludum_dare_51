@@ -8,7 +8,7 @@ class_name character_stats
 @export var max_allocated_stats : int = 23
 
 # inventory
-@export var gold : int = 100
+@export var gold : int = 5000
 @export var brought_items = ["unarmed"]
 
 @export var main_weapon : weapon = preload("res://entities/weapons/unarmed.tres")

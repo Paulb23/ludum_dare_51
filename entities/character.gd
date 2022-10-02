@@ -24,6 +24,7 @@ func ready_up() -> void:
 
 	$skeleton.set_hair_color(stats.hair_colour)
 	$skeleton.set_skin_color(stats.skin_colour)
+	$skeleton._load_weapon(_current_equiped)
 
 
 func do_attack(other : character) -> void:
@@ -67,10 +68,12 @@ func do_swap(other : character) -> void:
 	if _using_main:
 		_current_equiped = stats.secondary_weapon
 		_using_main = false
+		$skeleton._load_weapon(_current_equiped)
 		return
 
 	_current_equiped = stats.main_weapon
 	_using_main = true
+	$skeleton._load_weapon(_current_equiped)
 
 func do_heal(other : character) -> void:
 	stats.health = min(max_health, stats.health + 1)
