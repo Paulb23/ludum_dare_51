@@ -11,7 +11,8 @@ var magic = [
 var weapons = [
 	preload("res://entities/weapons/unarmed.tres"),
 	preload("res://entities/weapons/short_sword.tres"),
-	preload("res://entities/weapons/long_sword.tres")
+	preload("res://entities/weapons/long_sword.tres"),
+	preload("res://entities/weapons/axe.tres")
 ]
 
 var last_button

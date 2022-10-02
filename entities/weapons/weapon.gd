@@ -23,4 +23,3 @@ enum types {
 @export_file("*.png") var unlocked_icon : String
 
 @export_file("*.png") var hover_icon : String
-@export_file("*.png") var clicked_icon : String

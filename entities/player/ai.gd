@@ -147,6 +147,7 @@ func _ready() -> void:
 	# Allow long sword
 	if points > 40:
 		weapons.push_back("res://entities/weapons/long_sword.tres")
+		weapons.push_back("res://entities/weapons/axe.tres")
 
 	# Allow staff and helm
 	if points > 50:

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://xtwwurmhewyp"]
+
+[ext_resource type="Script" path="res://entities/weapons/weapon.gd" id="1_ck13n"]
+
+[resource]
+script = ExtResource("1_ck13n")
+name = "Axe"
+type = 0
+price = 350
+damage = 8
+range = 350
+sprite = "res://icons/weapons/axe_sprite.png"
+locked_icon = "res://icons/weapons/axe_locked.png"
+unlocked_icon = "res://icons/weapons/axe_unlocked.png"
+hover_icon = "res://icons/weapons/axe_hover.png"
